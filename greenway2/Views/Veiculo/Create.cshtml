@@ -1,0 +1,36 @@
+﻿
+@model greenway2.DTOs.VeiculoDTO
+@{
+    ViewData["Title"] = "Criar Veículo";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="NumeroSerie">Número de Série</label>
+        <input type="text" class="form-control" id="NumeroSerie" name="NumeroSerie" required maxlength="100" />
+    </div>
+
+    <div class="form-group">
+        <label for="Latitude">Latitude</label>
+        <input type="text" class="form-control" id="Latitude" name="Latitude" required maxlength="30" />
+    </div>
+
+    <div class="form-group">
+        <label for="Longitude">Longitude</label>
+        <input type="text" class="form-control" id="Longitude" name="Longitude" required maxlength="30" />
+    </div>
+
+    <div class="form-group">
+        <label for="TipoVeiculo">Tipo de Veículo</label>
+        <select class="form-control" id="TipoVeiculo" name="TipoVeiculo" required>
+            <option value="B">B</option>
+            <option value="P">P</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="@Url.Action("Index", "Veiculo")" class="btn btn-secondary">Cancelar</a>
+</form>

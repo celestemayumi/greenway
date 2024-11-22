@@ -1,0 +1,20 @@
+﻿@model greenway2.DTOs.CadastroDTO
+
+@{
+    ViewData["Title"] = "Excluir Cadastro";
+    Layout = "_Layout";
+}
+
+<h2>Excluir Cadastro</h2>
+
+<div class="alert alert-danger">
+    <strong>Atenção!</strong> Você tem certeza que deseja excluir o cadastro de <strong>@Model.Nome</strong>?
+</div>
+
+<div>
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button type="submit" class="btn btn-danger">Excluir</button>
+        <a href="@Url.Action("Index")" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

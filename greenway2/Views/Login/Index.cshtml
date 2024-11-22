@@ -1,0 +1,33 @@
+﻿@model IEnumerable<greenway2.DTOs.LoginDTO>
+
+@{
+    ViewData["Title"] = "Logins";
+    Layout = "_Layout";
+}
+
+<h1>Logins</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var login in Model)
+        {
+            <tr>
+                <td>@login.Id</td>
+                <td>@login.Email</td>
+                <td>@login.Senha</td>
+                <td>
+                    <a href="@Url.Action("Delete", "Login", new { id = login.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

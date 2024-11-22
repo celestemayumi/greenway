@@ -1,0 +1,15 @@
+﻿@model greenway2.DTOs.VeiculoDTO
+
+@{
+    ViewData["Title"] = "Excluir Veículo";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Tem certeza de que deseja excluir o veículo <strong>@Model.Id</strong>?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="@Url.Action("Index", "Veiculo")" class="btn btn-secondary">Cancelar</a>
+</form>

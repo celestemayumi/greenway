@@ -1,0 +1,41 @@
+﻿@model IEnumerable<greenway2.DTOs.VeiculoDTO>
+
+@{
+    ViewData["Title"] = "Lista de Veículos";
+    Layout = "_Layout";
+}
+
+<h1>Lista de Veículos</h1>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-primary">Adicionar Novo Veículo</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Número de Série</th>
+            <th>Latitude</th>
+            <th>Longitude</th>
+            <th>Tipo de Veículo</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var veiculo in Model)
+        {
+            <tr>
+                <td>@veiculo.Id</td>
+                <td>@veiculo.NumeroSerie</td>
+                <td>@veiculo.Latitude</td>
+                <td>@veiculo.Longitude</td>
+                <td>@veiculo.TipoVeiculo</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = veiculo.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = veiculo.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<greenway2.DTOs.HistoricoDTO>
+@{
+    ViewData["Title"] = "Historico - Lista";
+    Layout = "_Layout";
+}
+
+<h1>Históricos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data de Uso</th>
+            <th>Local de Partida</th>
+            <th>Local de Destino</th>
+            <th>Tempo de Viagem</th>
+            <th>Percurso</th>
+            <th>Cadastro</th>
+            <th>Veículo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var historico in Model)
+        {
+            <tr>
+                <td>@historico.Id</td>
+                <td>@historico.DataUso.ToShortDateString()</td>
+                <td>@historico.LocalPartida</td>
+                <td>@historico.LocalDestino</td>
+                <td>@historico.TempoViagem</td>
+                <td>@historico.Percurso</td>
+                <td>@historico.IdCadastro</td>
+                <td>@historico.IdVeiculo</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<greenway2.DTOs.CadastroDTO>
+
+@{
+    ViewData["Title"] = "Cadastro - Lista";
+    Layout = "_Layout";
+}
+
+<h2>Lista de Cadastros</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Numero do RG</th>
+            <th>Numero do CPF</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cadastro in Model)
+        {
+            <tr>
+                <td>@cadastro.Id</td>
+                <td>@cadastro.Nome</td>
+                <td>@cadastro.NumeroRg</td>
+                <td>@cadastro.NumeroCpf</td>
+                <td>@cadastro.Email</td>
+                <td>@cadastro.Senha</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = cadastro.Id })" class="btn btn-warning">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = cadastro.Id })" class="btn btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
